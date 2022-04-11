@@ -3,10 +3,10 @@ create table users
 (
     id         BIGINT not null,
     email      varchar(255),
-    patronymic varchar(255),
-    phone      BIGINT,
     surname    varchar(255),
     username   varchar(255),
+    patronymic varchar(255),
+    phone      BIGINT,
     primary key (id)
 );
 alter table if exists users
