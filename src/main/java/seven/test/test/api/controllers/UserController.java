@@ -1,5 +1,6 @@
 package seven.test.test.api.controllers;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
@@ -22,12 +23,12 @@ import java.util.stream.Stream;
 @RequiredArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 @RestController
-@RequestMapping(value = Const.USER_URL)
+@Tag(name = "Контроллер для записи данных в БД и получения их")
 public class UserController {
     UserRepository userRepository;
     ControllerHelper controllerHelper;
 
-    @PostMapping()
+    @PostMapping(Const.USER_URL)
     public ResponseEntity<UserDto> createUser(
             @RequestParam(value = "email", required = true) String email,
             @RequestParam(value = "surname", required = true) String surname,
@@ -61,7 +62,7 @@ public class UserController {
 
     }
 
-    @GetMapping
+    @GetMapping(Const.USER_URL)
     public ResponseEntity<List<UserDto>> getUsers(
             @RequestParam(value = "email", required = false) Optional<String> optionalEmail,
             @RequestParam(value = "surname", required = false) Optional<String> optionalSurname,
