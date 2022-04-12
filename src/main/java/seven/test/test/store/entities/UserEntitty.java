@@ -1,6 +1,5 @@
 package seven.test.test.store.entities;
 
-
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
@@ -15,11 +14,9 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UserEntitty {
-
-
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-            Long id;
+    Long id;
     @Column()
     String email;
     @Column()
@@ -30,5 +27,4 @@ public class UserEntitty {
     String patronymic;
     @Column(unique = true)
     Long phone;
-
 }

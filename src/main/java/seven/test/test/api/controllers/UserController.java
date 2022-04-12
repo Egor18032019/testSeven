@@ -102,7 +102,6 @@ public class UserController {
             List<UserEntitty> userWithEmail = userRepository.findAllByEmail(email);
             boolean haveAnyUserWithEmail = userWithEmail.isEmpty();
             if (!haveAnyUserWithEmail) {
-
                 return ResponseEntity.status(HttpStatus.OK).
                         body(
                                 userWithEmail.stream()
