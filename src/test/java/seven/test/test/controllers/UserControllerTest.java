@@ -19,7 +19,6 @@ public class UserControllerTest extends AbstractUserRestControllerTest {
 
     @Test
     void registerNewUser() throws Exception {
-
         UserDto receivedUser = UserTestData.asUserDto(
                 perform(
                         MockMvcRequestBuilders.post(Const.USER_URL)
@@ -31,14 +30,10 @@ public class UserControllerTest extends AbstractUserRestControllerTest {
                                 .param("phone", user_60001.getPhone().toString()))
                         .andExpect(status().isCreated())
                         .andReturn());
-        // сравниваем то что хотели и то что в базе ?
         UserDto registeredUserDto = UserDtoFactory.makeProjectDto(
                 userRepository.findByPhone(user_60001.getPhone())
                         .orElseGet(null)
-                //как тут выдавать ?
         );
         UserTestData.assertEquals(receivedUser, registeredUserDto);
     }
-
-
 }
