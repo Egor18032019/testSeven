@@ -7,11 +7,6 @@ import seven.test.test.api.dto.UserDto;
 import static seven.test.test.data.UserTestData.user_60001;
 
 public class UserDtoTest {
-    public static final String email = "email";
-    public static final String surname = "surname";
-    public static final String username = "username";
-    public static final String patronymic = "patronymic";
-    public static final Long phone = 8912L;
 
     @Test
     void createNewUserDtoObject() {
@@ -26,11 +21,11 @@ public class UserDtoTest {
         Assertions.assertNotNull(result);
         Assertions.assertNotNull(result.getPhone());
         Assertions.assertNotNull(result.getUsername());
-        Assertions.assertSame(result.getEmail(),email);
-        Assertions.assertSame(result.getSurname(),surname);
-        Assertions.assertSame(result.getUsername(), username);
-        Assertions.assertSame(result.getPatronymic(),patronymic);
-        Assertions.assertEquals(result.getPhone(),phone);
+        Assertions.assertSame(result.getEmail(),user_60001.getEmail());
+        Assertions.assertSame(result.getSurname(),user_60001.getSurname());
+        Assertions.assertSame(result.getUsername(), user_60001.getUsername());
+        Assertions.assertSame(result.getPatronymic(),user_60001.getPatronymic());
+        Assertions.assertEquals(result.getPhone(),user_60001.getPhone());
     }
 
 }
